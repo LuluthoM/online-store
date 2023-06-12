@@ -1,17 +1,56 @@
 ﻿@inherits LayoutComponentBase
 
+@inject NavigationManager navManager;
+@inject IJSRuntime JSRuntime
+
 <div class="page">
-    <div class="sidebar">
-        <NavMenu />
-    </div>
+
+    @if (IsLoggedInUser)
+    {
+        <div class="sidebar">
+            <NavMenu />
+        </div>
+    }
 
     <main>
-        <div class="top-row px-4">
-            <a href="https://docs.microsoft.com/aspnet/" target="_blank">About</a>
-        </div>
+        @if (IsLoggedInUser)
+        {
+            <div class="top-row px-4">
+                <a href="" @onclick="Logout">Logout</a>
+            </div>
 
-        <article class="content px-4">
-            @Body
-        </article>
+        }
+
+        <div class="content px-4">
+            <CascadingValue Value="event_notify">
+                @Body
+            </CascadingValue>
+        </div>
     </main>
 </div>
+
+@code {
+    public bool IsLoggedInUser;
+    EventCallback event_notify => EventCallback.Factory.Create(this, NotifyLayout);
+
+    public void Logout()
+    {
+        Task.Run(() => JSRuntime.InvokeVoidAsync("localStorage.removeItem", "userKey"));
+        Task.Run(() => NotifyLayout());
+        navManager.NavigateTo("/login");
+    }
+
+    private async Task NotifyLayout()
+    {
+        var userSesion = await JSRuntime.InvokeAsync<string>("localStorage.getItem", "userKey");
+        if (userSesion == "Success")
+        {
+            IsLoggedInUser = true;
+        }
+        else
+        {
+            IsLoggedInUser = false;
+            navManager.NavigateTo("/login");
+        }
+    }
+}

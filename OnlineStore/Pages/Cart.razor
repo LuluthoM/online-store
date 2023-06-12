@@ -1,0 +1,52 @@
+﻿@page "/cart"
+
+@using Services.fcInterviewAPI.Products
+@using Services.fcInterviewAPI.Models
+@using Services.Cart
+
+
+@inject ICartService cartService;
+@inject IProductService productService;
+<PageTitle>Products</PageTitle>
+
+<h1>Products</h1>
+
+<p>See all Products and add to cart</p>
+
+<br />
+
+@foreach (var item in products)
+{
+    <div>
+        <h2>@item.product.ProductName</h2>
+        <p>@item.product.CategoryName</p>
+        <p>@item.product.UnitPrice.ToString("C")</p>
+        <p>Quantity: @item.quantity</p>
+    </div>
+}
+
+<a href="/checkout">Proceed to Checkout</a>
+
+@code {
+    [CascadingParameter]
+    public EventCallback notify { get; set; }
+
+    private Dictionary<string, int> myCart = new Dictionary<string, int>();
+    private List<(Product product, int quantity)> products = new List<(Product product, int quantity)>();
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            await notify.InvokeAsync();
+            var cart = await cartService.GetCartItems();
+            foreach (var item in cart)
+            {
+                var product = await productService.GetProduct(item.Key);
+                int quantity = await cartService.GetQuantity(item.Key);
+                products.Add((product, quantity));
+            }
+        }
+    }
+}
+

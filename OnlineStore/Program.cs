@@ -4,6 +4,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using OnlineStore;
 using OnlineStore.Services;
+using OnlineStore.Services.Cart;
 using OnlineStore.Services.fcInterviewAPI.Orders;
 using OnlineStore.Services.fcInterviewAPI.Products;
 using OnlineStore.Services.fcInterviewAPI.Users;
@@ -19,5 +20,6 @@ var configuration = builder.Configuration;
 builder.Services.AddSingleton<IOrderService>(sp => new OrderService(configuration["Api:Endpoint"], configuration["Api:ApiKey"]));
 builder.Services.AddSingleton<IProductService>(sp => new ProductService(configuration["Api:Endpoint"], configuration["Api:ApiKey"]));
 builder.Services.AddSingleton<IUserService>(sp => new UserService(configuration["Api:Endpoint"], configuration["Api:ApiKey"]));
+builder.Services.AddSingleton<ICartService>(sp => new CartService());
 
 await builder.Build().RunAsync();

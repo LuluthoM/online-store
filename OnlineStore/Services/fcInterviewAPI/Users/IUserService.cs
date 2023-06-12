@@ -1,4 +1,5 @@
-﻿using OnlineStore.Services.fcInterviewAPI.Models;
+﻿using OnlineStore.Data.CustomModels;
+using OnlineStore.Services.fcInterviewAPI.Models;
 
 namespace OnlineStore.Services.fcInterviewAPI.Users
 {
@@ -7,6 +8,6 @@ namespace OnlineStore.Services.fcInterviewAPI.Users
     Task<object> CreateUser(CreateUserRequest createUserRequest);
     Task<User> GetUser(string id);
     Task<UsersResponse> GetUsers();
-    bool Login(string username, string password);
+    ResponseModel Login(LoginModel loginModel);
   }
 }

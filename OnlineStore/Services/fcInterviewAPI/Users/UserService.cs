@@ -1,4 +1,5 @@
-﻿using OnlineStore.Services.fcInterviewAPI.Models;
+﻿using OnlineStore.Data.CustomModels;
+using OnlineStore.Services.fcInterviewAPI.Models;
 using RestSharp;
 
 namespace OnlineStore.Services.fcInterviewAPI.Users
@@ -9,9 +10,13 @@ namespace OnlineStore.Services.fcInterviewAPI.Users
     {
     }
 
-    public bool Login(string username, string password)
+    public ResponseModel Login(LoginModel loginModel)
     {
-      return true;
+      return new ResponseModel()
+      {
+        Status = true,
+        Message = "Logged in successfully"
+      };
     }
     public Task<UsersResponse> GetUsers()
     {

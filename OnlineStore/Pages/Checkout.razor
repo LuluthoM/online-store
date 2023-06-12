@@ -1,0 +1,42 @@
+﻿@page "/checkout"
+@inject ICartService cartService
+@inject IProductService productService
+<PageTitle>Checkout</PageTitle>
+
+<h3>Checkout</h3>
+
+@if (products == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <h4>Review Your Cart</h4>
+    foreach (var item in products)
+    {
+        <div>
+            <h2>@item.product.ProductName</h2>
+            <p>@item.product.CategoryName</p>
+            <p>@item.product.UnitPrice.ToString("C")</p>
+            <p>Quantity: @item.quantity</p>
+        </div>
+    }
+}
+
+@code {
+    private List<(Product product, int quantity)> products;
+
+    protected override async Task OnInitializedAsync()
+    {
+        var cart = await cartService.GetCartItems();
+        products = new List<(Product product, int quantity)>();
+
+        foreach (var item in cart)
+        {
+            var product = await productService.GetProduct(item.Key);
+            int quantity = item.Value;
+            products.Add((product, quantity));
+        }
+    }
+}
+

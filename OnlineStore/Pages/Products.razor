@@ -1,0 +1,61 @@
+﻿@page "/products"
+
+@using Services.fcInterviewAPI.Products
+@using Services.fcInterviewAPI.Models
+
+@inject IProductService productService;
+<PageTitle>Products</PageTitle>
+
+<h1>Products</h1>
+
+<p>See all Products and add to cart</p>
+
+@if (products == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    @foreach (var product in products)
+    {
+        <div>
+            <h2>@product.ProductName</h2>
+            <p>@product.CategoryName</p>
+            <p>@product.UnitPrice.ToString("C")</p>
+            <button @onclick="() => AddToCart(product.ProductId)">Add to Cart</button>
+        </div>
+    }
+}
+
+@code {
+    [CascadingParameter]
+    public EventCallback notify { get; set; }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            await notify.InvokeAsync();
+        }
+    }
+
+    private List<Product> products = new List<Product>();
+    private Dictionary<int, int> cart = new Dictionary<int, int>();
+
+    protected override async Task OnInitializedAsync()
+    {
+        products = await productService.GetProducts();
+    }
+
+    private void AddToCart(int productId)
+    {
+        if (cart.ContainsKey(productId))
+        {
+            cart[productId]++;
+        }
+        else
+        {
+            cart.Add(productId, 1);
+        }
+    }
+}

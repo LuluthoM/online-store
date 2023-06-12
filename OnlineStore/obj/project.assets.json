@@ -1667,11 +1667,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Code\\OnlineStore\\OnlineStore\\OnlineStore.csproj",
+      "projectUniqueName": "C:\\Code\\online-store\\OnlineStore\\OnlineStore.csproj",
       "projectName": "OnlineStore",
-      "projectPath": "C:\\Code\\OnlineStore\\OnlineStore\\OnlineStore.csproj",
+      "projectPath": "C:\\Code\\online-store\\OnlineStore\\OnlineStore.csproj",
       "packagesPath": "C:\\Users\\lulut\\.nuget\\packages\\",
-      "outputPath": "C:\\Code\\OnlineStore\\OnlineStore\\obj\\",
+      "outputPath": "C:\\Code\\online-store\\OnlineStore\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

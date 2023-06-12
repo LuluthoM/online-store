@@ -11,41 +11,49 @@ build_property.EnableTrimAnalyzer = true
 build_property.IncludeAllContentForSelfExtract = 
 build_property.RootNamespace = OnlineStore
 build_property.RootNamespace = OnlineStore
-build_property.ProjectDir = C:\Code\OnlineStore\OnlineStore\
+build_property.ProjectDir = C:\Code\online-store\OnlineStore\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Code\OnlineStore\OnlineStore
+build_property.MSBuildProjectDirectory = C:\Code\online-store\OnlineStore
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Code/OnlineStore/OnlineStore/App.razor]
+[C:/Code/online-store/OnlineStore/App.razor]
 build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Code/OnlineStore/OnlineStore/Pages/Counter.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ291bnRlci5yYXpvcg==
+[C:/Code/online-store/OnlineStore/Pages/Cart.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2FydC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Code/OnlineStore/OnlineStore/Pages/FetchData.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRmV0Y2hEYXRhLnJhem9y
+[C:/Code/online-store/OnlineStore/Pages/Checkout.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2hlY2tvdXQucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Code/OnlineStore/OnlineStore/Pages/Index.razor]
+[C:/Code/online-store/OnlineStore/Pages/Index.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXgucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Code/OnlineStore/OnlineStore/Shared/SurveyPrompt.razor]
+[C:/Code/online-store/OnlineStore/Pages/Login.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTG9naW4ucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Code/online-store/OnlineStore/Pages/Products.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJvZHVjdHMucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Code/online-store/OnlineStore/Shared/SurveyPrompt.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXFN1cnZleVByb21wdC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Code/OnlineStore/OnlineStore/_Imports.razor]
+[C:/Code/online-store/OnlineStore/_Imports.razor]
 build_metadata.AdditionalFiles.TargetPath = X0ltcG9ydHMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Code/OnlineStore/OnlineStore/Shared/MainLayout.razor]
+[C:/Code/online-store/OnlineStore/Shared/MainLayout.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE1haW5MYXlvdXQucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = b-1yhkqrg3ad
 
-[C:/Code/OnlineStore/OnlineStore/Shared/NavMenu.razor]
+[C:/Code/online-store/OnlineStore/Shared/NavMenu.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE5hdk1lbnUucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = b-x7r5agduk0
