@@ -1,6 +1,12 @@
 ﻿@page "/checkout"
+
+@using Services.fcInterviewAPI.Models
+@using Services.fcInterviewAPI.Products
+@using Services.Cart
+
 @inject ICartService cartService
 @inject IProductService productService
+
 <PageTitle>Checkout</PageTitle>
 
 <h3>Checkout</h3>
